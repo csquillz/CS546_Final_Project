@@ -51,8 +51,8 @@
                 </div>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="validationCustom02">Re-enter Password</label>
-                <input type="password" class="form-control" id="validationCustom02" placeholder="Password" required>
+                <label for="passwordText2">Re-enter Password</label>
+                <input type="password" class="form-control" id="passwordText2" placeholder="Password" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -87,6 +87,8 @@
                             event.preventDefault();
                             event.stopPropagation();
                         }
+
+                        
                         form.classList.add('was-validated');
                     }, false);
                 });
