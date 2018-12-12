@@ -11,13 +11,13 @@ async function addUser(firstName, lastName, userName, password) {
   return users().then(usersCollection => {
     let newUser = {
       _id: uuid.v4(),
-      username: userName,
+      username: userName.toLowerCase(),
       sesssioId: uuid.v4(),
       hashedPassword: hash,
       Account: {
-        firstName: firstName,
-        lastName: lastName,
-        userName: userName
+        firstName: firstName.toLowerCase(),
+        lastName: lastName.toLowerCase(),
+        userName: userName.toLowerCase()
       }
     };
 
@@ -37,7 +37,7 @@ async function addUser(firstName, lastName, userName, password) {
 async function checkForExistingUser(username) {
   if (!username) throw "Invalid username";
   return users().then(usersCollection => {
-    return usersCollection.findOne({ username: username }).then(account => {
+    return usersCollection.findOne({ username: username.toLowerCase() }).then(account => {
       if (!account) throw "username not found";
       return account;
     });
@@ -45,13 +45,16 @@ async function checkForExistingUser(username) {
 }
 
 async function validatePassword(username, password) {
-  const userInfo = checkForExistingUser(username);
+  const userInfo = await checkForExistingUser(username);
+  console.log(userInfo)
+  console.log(userInfo.hashedPassword)
+  //console.log(password)
   let compareToMatch = false
-  try {
-    compareToMatch = await bcrypt.compare(password, userInfo.hashedPassword)
-  } catch (e) {
-    throw (e)
-  }
+  // try {
+  compareToMatch = await bcrypt.compare(password, String(userInfo.hashedPassword))
+  // } catch (e) {
+  //   throw (e)
+  // }
   return compareToMatch;
 }
 
