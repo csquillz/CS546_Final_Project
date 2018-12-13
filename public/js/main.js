@@ -30,6 +30,10 @@ $(document).ready(function () {
         $('#goalModal').modal('hide');
     });
 
+    $('#goalModal').on('hidden.bs.modal', function () {
+        $(this).find('form').trigger('reset');
+    });
+
     $('#transactionSubmit').click(function() {
         let data = {
             type: $('#inputTransactionType').val(),
@@ -47,4 +51,8 @@ $(document).ready(function () {
             dataType: 'json'
         });
     });
+
+    $('#transactionModal').on('hidden.bs.modal', function () {
+        $(this).find('form').trigger('reset');
+    })
 });
