@@ -1,16 +1,206 @@
-<div>
-    <h1 class="index-header">{{title}}</h1>
-    <div>
-        <ul>
-            <li>User Id: {{user._id}}</li>
-            <li>Username: {{user.username}}</li>
-            <li>First Name: {{user.firstName}}</li>
-            <li>Last Name: {{user.lastName}}</li>
-            <li>Profession: {{user.profession}}</li>
-            <li>Bio: {{user.bio}}</li>
-        </ul>
-        <div>
-            <a href="./logout">Logout</a>
+<input type="hidden" id="loggedInName" value={{firstName}}>
+<div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+              <div class="card-body">
+                <div class="clearfix">
+                  <div class="float-right">
+                    <p class="mb-0 text-right">Total Spending</p>
+                    <div class="fluid-container">
+                      <i class="fa fa-money-bill-wave boxicon"></i>
+                      <h3 class="boxamount">None</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+              <div class="card-body">
+                <div class="clearfix">
+                  <div class="float-right">
+                    <p class="mb-0 text-right">Categories</p>
+                    <div class="fluid-container">
+                      <i class="fa fa-filter boxicon"></i>
+                      <h3 class="boxamount">None</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+              <div class="card-body">
+                <div class="clearfix">
+                  <div class="float-right">
+                    <p class="mb-0 text-right">Goals</p>
+                    <div class="fluid-container">
+                      <i class="fa fa-chart-line boxicon"></i>
+                      <h3 class="boxamount">None</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+              <div class="card-body">
+                <div class="clearfix">
+                  <div class="float-right">
+                    <p class="mb-0 text-right">Max Purchase</p>
+                    <div class="fluid-container">
+                      <i class="fa  fa-arrow-up boxicon"></i>
+                      <h3 class="boxamount">None</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title goalstitle">Monthly Goals</h3>
+                <button type="button" class="btn btn-outline-success btn-fw addgoal" data-toggle="modal" data-target="#goalModal">Add Goal</button>
+                {{#if transactionData.length}}
+                  <div class="col goalcol">
+                  <div>
+                    <span class="progress-label">Coffee</span>
+                    <span class="pull-right">80% of $100</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:80%"></div>
+                    </div>
+                  </div>
+                </div>
+                {{else}}
+                  <p class="nodata">No goals! Add some by clicking the button above!</p>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title transhistory">Monthly Transaction History</h4>
+                <button type="button" class="btn btn-outline-success btn-fw tbutton" data-toggle="modal" data-target="#transactionModal">Add Transaction</button>
+                {{#if transactionData.length}}
+                  <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>
+                          #
+                        </th>
+                        <th>
+                          Category
+                        </th>
+                        <th>
+                          Store
+                        </th>
+                        <th>
+                          Amount
+                        </th>
+                        <th>
+                          Description
+                        </th>
+                        <th>
+                          Date
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div> 
+                {{else}}
+                  <p class="nodata">No transactions! Add some by clicking the button above!</p>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- content-wrapper ends -->
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
 </div>
+<!-- Goals Modal -->
+<div class="modal fade" id="goalModal" tabindex="-1" role="dialog" aria-labelledby="goalModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="goalModalLabel">Add A Goal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="inputGoalType">Type</label>
+            <input type="type" class="form-control" id="inputGoalType" placeholder="Enter Type">
+          </div>
+          <div class="form-group">
+            <label for="inputGoalAmount">Amount</label>
+            <input type="money" class="form-control" id="inputGoalAmount" placeholder="Enter Amount">
+          </div>
+          <div class="form-group">
+            <label for="inputGoalMonth">Month</label>
+            <input type="monthInput" class="form-control" id="inputGoalMonth" placeholder="Enter Month">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="goalSubmit" type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Transaction Modal -->
+<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="transactionModalLabel">Add A Transaction</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="inputTransactionType">Type</label>
+            <input type="type" class="form-control" id="inputTransactionType" placeholder="Enter Type">
+          </div>
+          <div class="form-group">
+            <label for="inputTransactionAmount">Amount</label>
+            <input type="money" class="form-control" id="inputTransactionAmount" placeholder="Enter Amount">
+          </div>
+          <div class="form-group">
+            <label for="inputTransactionDate">Date</label>
+            <input type="date" class="form-control" id="inputTransactionDate" placeholder="Enter Month">
+          </div>
+          <div class="form-group">
+            <label for="inputTransactionDescription">Description</label>
+            <input type="description" class="form-control" id="inputTransactionDescription" placeholder="Enter Description">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="transactionSubmit" type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../public/js/main.js"></script>

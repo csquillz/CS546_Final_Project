@@ -1,3 +1,4 @@
+
 const mongoCollections = require("../config/mongoCollections");
 const users = mongoCollections.users;
 const uuid = require("node-uuid");
@@ -85,7 +86,7 @@ async function validateSessionId(sessionId) {
 }
 
 async function getUserInfoById(sessionId) {
-  validateSessionId(sessionId)
+  return validateSessionId(sessionId);
 }
 
 async function addSessionId(newsessionId, username) {

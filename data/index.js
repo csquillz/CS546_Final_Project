@@ -1,12 +1,10 @@
 const usersRoute = require("./users");
-const userAccountRoute = require("./user-account");
 const goalsRoute = require("./users");
-const transHistoryRoute = require("./trans-history");
+const transHistoryRoutes = require("./trans-history");
 
 
 module.exports = {
     users: usersRoute,
-    userAccount: userAccountRoute,
     goals: goalsRoute,
-    transHistory: transHistoryRoute
+    transHistory: transHistoryRoutes
 };
