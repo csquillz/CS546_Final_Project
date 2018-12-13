@@ -34,7 +34,7 @@ There are few simple steps in running our program. You first need to make sure t
 
 Once you navigate to your local host you will be presented with this start up screen:
 
-(https://user-images.githubusercontent.com/35939416/49965120-4a784b00-feea-11e8-8769-647cb1d98661.png)
+![image](https://user-images.githubusercontent.com/35939416/49965120-4a784b00-feea-11e8-8769-647cb1d98661.png)
 
 
 
