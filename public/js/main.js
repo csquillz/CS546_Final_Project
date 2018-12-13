@@ -12,14 +12,22 @@ $(document).ready(function () {
             month: $('#inputGoalMonth').val()
         };
 
-        console.log(JSON.stringify(data));
-
         $.ajax({
             type: 'POST',
             url: '/goal',
             data: data,
             dataType: 'json'
         });
+
+        $.ajax({
+            type: 'GET',
+            url: '/private',
+            data: data
+        }).done(function(){
+            window.location = window.location;
+        });
+
+        $('#goalModal').modal('hide');
     });
 
     $('#transactionSubmit').click(function() {

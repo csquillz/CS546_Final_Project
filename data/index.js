@@ -1,5 +1,5 @@
 const usersRoute = require("./users");
-const goalsRoute = require("./users");
+const goalsRoute = require("./goals");
 const transHistoryRoutes = require("./trans-history");
 
 

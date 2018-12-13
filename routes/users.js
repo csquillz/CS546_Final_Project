@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const usersData = data.users;
+const goalsData = data.goals;
 const uuid = require("node-uuid");
 
 router.use("/", async function (req, res, next) {
@@ -113,13 +114,14 @@ router.get("/", async function (req, res) {
 router.get("/private", async function (req, res) {
     const sessionId = req.cookies.sessionId;
     const user = await usersData.getUserInfoById(sessionId);
-    let goalData = [];
+    let goalData = await goalsData.getAllGoals(user.Account.userName)
+    console.log(goalData);
     let transactionData = [];
     res.render("pages/private", {
         firstName: user.Account.firstName,
         lastName: user.Account.lastName,
-        goalData: [],
-        transactions: []
+        goalData: goalData,
+        transactions: transactionData
     });
 });
 
