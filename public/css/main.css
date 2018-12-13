@@ -350,10 +350,6 @@ pre {
       padding-top: 0; 
     }
 
-.login-form{
-  padding: 2rem;
-}
-
 .active.nav-link{
   padding-left: 0rem;
   padding-bottom: 1rem;
@@ -367,4 +363,22 @@ pre {
 .error-msg{
   color: red;
   padding-bottom: 1rem;
+}
+
+.index-header {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.password {
+  padding-top: 20px;
+}
+
+.login-user {
+  text-align: center;
+}
+
+.signup {
+  text-align: center;
+  padding-bottom: 50px;
 }
