@@ -3,7 +3,7 @@ $(document).ready(function () {
     let finalName = name.charAt(0).toUpperCase() + name.slice(1);
     $('.nametitle').text("Welcome, " + finalName + "!");
 
-    $('.optionsmenu').css('display', 'block');
+    $('.logout-btn').css('display', 'block');
 
     $('#goalSubmit').click(function() {
         let data = {
@@ -17,6 +17,24 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             url: '/goal',
+            data: data,
+            dataType: 'json'
+        });
+    });
+
+    $('#transactionSubmit').click(function() {
+        let data = {
+            type: $('#inputTransactionType').val(),
+            amount: $('#inputTransactionAmount').val(),
+            month: $('#inputTransactionDate').val(),
+            description: $('#inputTransactionDescription').val()
+        };
+
+        console.log(JSON.stringify(data));
+
+        $.ajax({
+            type: 'POST',
+            url: '/transHistory',
             data: data,
             dataType: 'json'
         });
