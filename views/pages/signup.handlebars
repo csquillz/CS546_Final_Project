@@ -33,7 +33,7 @@
                     <input type="text" class="form-control" id="usernameText" name= "username" placeholder="Username"
                         aria-describedby="inputGroupPrepend" required>
                     <div class="invalid-feedback">
-                        Please choose a username.
+                        Please choose a Username.
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     Looks good!
                 </div>
                 <div class="invalid-feedback">
-                    Please enter a the same Password.
+                    Please re-enter the Password.
                 </div>
             </div>
         </div>
@@ -72,24 +72,5 @@
         <button class="btn btn-primary" type="submit">Sign Up!</button>
         
     </form>
-
-    <script>
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
-    </script>
+    <script src="/public/js/login-validation.js"></script>
 </div>
