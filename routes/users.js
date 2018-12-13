@@ -25,7 +25,7 @@ router.use("/private", async function (req, res, next) {
     } else {
         res.clearCookie('name')
         res.clearCookie('sessionId')
-        res.status(403).render("pages/error", { title: "Error! No access." })
+        res.redirect("/")
         return;
     }
 });
