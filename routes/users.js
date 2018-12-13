@@ -6,8 +6,7 @@ const uuid = require("node-uuid");
 
 router.use("/", async function (req, res, next) {
     if (req.originalUrl == "/") {
-        //console.log(req.cookies.sessionId)
-        valID = await usersData.validateSessionId(req.cookies.sessionId)
+        let valID = await usersData.validateSessionId(req.cookies.sessionId);
         if (req.cookies.name === 'AuthCookie' && valID) {
             next();
         } else {
@@ -62,10 +61,6 @@ router.post("/login", async function (req, res) {
 
     const goodUsername = await usersData.checkForExistingUser(username);
     const goodPassword = await usersData.validatePassword(username, password);
-    //console.log(password)
-    //console.log(goodPassword)
-    //console.log(goodPassword.hashedPassword)
-    // console.log(goodPassword._id)
     if (goodUsername && goodPassword) {
         res.cookie('name', 'AuthCookie')
         //await usersData.getInfo(username);
@@ -89,7 +84,7 @@ router.post("/login", async function (req, res) {
 
 router.get("/", async function (req, res) {
     if (req.cookies.name === 'AuthCookie' && await usersData.validateSessionId(req.cookies.sessionId)) {
-        res.redirect("/private")
+        res.redirect("/private");
     } else {
         res.render("pages/index", {
             title: "Login"
@@ -98,12 +93,16 @@ router.get("/", async function (req, res) {
 });
 
 router.get("/private", async function (req, res) {
-    // const sessionId = req.cookies.sessionId;
-    // const user = await usersData.getUserInfoById(sessionId);
+    const sessionId = req.cookies.sessionId;
+    const user = await usersData.getUserInfoById(sessionId);
+    let goalData = [];
+    let transactionData = [];
     res.render("pages/private", {
-        title: "Welcome " //+ user.firstName,
-        //user: user
-    })
+        firstName: user.Account.firstName,
+        lastName: user.Account.lastName,
+        goalData: [],
+        transactions: []
+    });
 });
 
 router.get("/logout", async function (req, res) {

@@ -1,0 +1,355 @@
+/*------------------------------------------------------------------
+/*-------------------------------------------------------------------*/
+/* === Import Bootstrap functions and variables === */
+/*-------------------------------------------------------------------*/
+/* === Import template variables === */
+/*-------------------------------------------------------------------*/
+/* === SCSS Compass Functions === */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+
+/*-------------------------------------------------------------------*/
+/* === Core Styles === */
+/* Reset Styles */
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; 
+}
+
+.nodata {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.optionsmenu {
+  display: none;
+}
+
+.goalcol {
+  padding-top: 40px;
+}
+
+.goalstitle {
+  display: inline;
+}
+
+.addgoal {
+  display: inline;
+  float: right;
+  width: 85px;
+  height: 35px;
+  font-size: 13px;
+  border-color: #216C2A;
+  color: #216C2A;
+}
+
+.addgoal:hover {
+  background-color: #216C2A;
+}
+
+.transhistory {
+  display: inline;
+}
+
+.tbutton {
+  display: inline;
+  padding-right: 100px;
+  float: right;
+  width: 130px;
+  height: 35px;
+  font-size: 13px;
+  border-color: #216C2A;
+  color: #216C2A;
+}
+
+.tbutton:hover {
+  background-color: #216C2A;
+}
+
+.table-responsive {
+  padding-top: 30px;
+}
+
+.pull-left {
+  float:left;
+  padding-top: 15px;
+}
+
+.pull-right { 
+  float:right
+}
+
+.media-name { 
+  margin-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .abs-center-x {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+}
+
+.navbar.default-layout .navbar-brand-wrapper .navbar-brand {
+  color: black !important;
+}
+
+.navbar.default-layout .navbar-menu-wrapper {
+  width: 100% !important;
+}
+
+.profile-text {
+  text-align: right !important;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.nav-item {
+  margin: 0px;
+}
+
+.main-panel {
+  width: 100% !important;
+}
+
+.money {
+  font-size: 40px;
+  padding-left: 20px;
+}
+
+.boxicon {
+  font-size: 4vw;
+  text-align: left;
+  padding-left: 4vw;
+}
+
+.boxamount {
+  padding-left: 13vw;
+  margin-top: -30px;
+  font-size: 2vw;
+}
+
+.text-right {
+  font-size: 1vw;
+}
+
+.navbar {
+  background-color: #216C2A;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.navbar-brand {
+  color: white !important;
+  font-size: 28px;
+}
+
+.links {
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.dropdown-menu-right { 
+  right: 0; 
+  left: auto; 
+}
+
+
+/* Typography */
+:root,
+body {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif; }
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500; }
+
+p {
+  font-size: 13px; }
+
+.h1,
+h1 {
+  font-size: 2.19rem; }
+
+.h2,
+h2 {
+  font-size: 1.88rem; }
+
+.h3,
+h3 {
+  font-size: 1.56rem; }
+
+.h4,
+h4 {
+  font-size: 1.13rem; }
+
+.h5,
+h5 {
+  font-size: 1rem; }
+
+.h6,
+h6 {
+  font-size: 0.9375rem; }
+
+p {
+  font-size: 13px; }
+
+
+
+.page-title {
+  color: #000;
+  margin: 0.38rem 0 0.75rem; }
+
+.card-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #404852;
+  margin-bottom: 22px;
+  font-size: 14px;
+  text-transform: capitalize; }
+  .rtl .card-title {
+    text-align: right; }
+
+.card-subtitle {
+  font-family: "Poppins", sans-serif;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem; }
+
+.card-description {
+  margin-bottom: 0.9375rem;
+  font-family: "Poppins", sans-serif; }
+  .rtl .card-description {
+    text-align: right; }
+
+.font-weight-normal {
+  font-weight: 400; }
+
+.font-weight-medium {
+  font-weight: 500; }
+
+.font-weight-semibold {
+  font-weight: 600; }
+
+
+.main-panel {
+  transition: width 0.25s ease, margin 0.25s ease;
+  width: calc(100% - 255px);
+  min-height: calc(100vh - 63px);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+  @media (max-width: 991px) {
+    .main-panel {
+      margin-left: 0;
+      width: 100%; } }
+
+.content-wrapper {
+  background: #f2f8f9;
+  padding: 1.5rem 1.7rem;
+  width: 100%;
+  -webkit-flex-grow: 1;
+  flex-grow: 1; }
+
+.container-scroller {
+  overflow: hidden; }
+
+.scroll-container {
+  position: relative; }
+  .scroll-container.horizontally {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%; }
+  .scroll-container.vertically {
+    overflow-y: hidden;
+    height: 100%;
+    max-height: 100%; }
+
+pre {
+  padding: 15px;
+  font-size: 14px; }
+
+/* Utilities */
+.grid-margin, .purchace-popup > div {
+  margin-bottom: 25px; }
+
+@media (min-width: 576px) {
+  .grid-margin-sm-0 {
+    margin-bottom: 0; } }
+
+@media (min-width: 768px) {
+  .grid-margin-md-0 {
+    margin-bottom: 0; } }
+
+@media (min-width: 992px) {
+  .grid-margin-lg-0 {
+    margin-bottom: 0; } }
+
+@media (min-width: 1200px) {
+  .grid-margin-xl-0 {
+    margin-bottom: 0; } }
+
+
+.stretch-card {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  -webkit-justify-content: stretch;
+  justify-content: stretch; }
+  .stretch-card > .card {
+    width: 100%;
+    min-width: 100%; }
+
+
+
+
+.text-gray, .card-subtitle, .new-accounts ul.chats li.chat-persons a p.joined-date {
+  color: #969696; }
+
+.text-black {
+  color: #000; }
+
+.flex-grow {
+  flex-grow: 1; }
+
+.ellipsis {
+  max-width: 95%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; }
+
+.no-wrap {
+  white-space: nowrap; }
+
+/* Cards */
+.card {
+  border: 0;
+  border-radius: 2px; 
+}
+  .card .card-body {
+    padding: 1.88rem 1.81rem; 
+  }
+    .card .card-body + .card-body {
+      padding-top: 0; 
+    }
+
