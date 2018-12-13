@@ -47,13 +47,13 @@ app.set("view engine", "handlebars");
 
 configRoutes(app);
 
-app.use(function(req, res, next) {
-  if (req.cookies.name === 'AuthCookie') {
-      next()
-  } else {
-      res.status(403).render("users/error", { title: "ERROR : 403 Forbidden" })
-  }
-});
+// app.use(function(req, res, next) {
+//   if (req.cookies.name === 'AuthCookie') {
+//       next()
+//   } else {
+//       res.status(403).render("users/error", { title: "ERROR : 403 Forbidden" })
+//   }
+// });
 
 // We can now navigate to localhost:3000
 app.listen(3000, function () {

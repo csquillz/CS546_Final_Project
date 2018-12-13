@@ -1,5 +1,4 @@
-
-<div>
+<div class= "login-form">
     <h1 class="index-header">{{title}}</h1>
     <form class="needs-validation" novalidate action="/signup" method="POST" id='signup-form'>
         <div class="form-row">
@@ -52,7 +51,7 @@
             </div>
             <div class="col-md-4 mb-3">
                 <label for="passwordText2">Re-enter Password</label>
-                <input type="password" class="form-control" id="passwordText2" placeholder="Password" required>
+                <input type="password" class="form-control" id="passwordText2" name= "password2" placeholder="Password" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -69,12 +68,12 @@
             </ul>
             </li>
         </div>
+        <div class= "error-msg">{{error}}</div>
         <button class="btn btn-primary" type="submit">Sign Up!</button>
         
     </form>
 
     <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict';
             window.addEventListener('load', function () {

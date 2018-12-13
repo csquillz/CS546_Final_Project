@@ -34,24 +34,42 @@ router.post("/signup", async function (req, res) {
     let firstName = req.body.firstName;
     let lastName = req.body.lastName;
     let username = req.body.username;
-    let password = req.body.password
-    //const goodUsername = await usersData.checkForExistingUser(username);
-    //const goodPassword = await usersData.validatePassword(username, password);
-    await usersData.addUser(firstName, lastName, username, password);
-    //add auth check?
-    res.cookie('name', 'AuthCookie')
+    let password = req.body.password;
+    let password2 = req.body.password2;
+    const badUsername = await usersData.checkForExistingUser(username);
+
+    if(password !== password2){
+        let error = ""
+        error = "Passwords do not match"
+        res.render("pages/signup", {
+            title: "Sign-Up",
+            error: error
+        });
+    }else if (badUsername) {
+        let error = ""
+        error = "User already exist"
+        res.render("pages/signup", {
+            title: "Sign-Up",
+            error: error
+        });
+    } else {
+        await usersData.addUser(firstName, lastName, username, password);
+        //add auth check?
+        res.cookie('name', 'AuthCookie')
         //await usersData.getInfo(username);
-    const sessionId = uuid.v4();
-    res.cookie("sessionId", sessionId)
-    await usersData.addSessionId(sessionId, username)
-    res.redirect("/private");
+        const sessionId = uuid.v4();
+        res.cookie("sessionId", sessionId)
+        await usersData.addSessionId(sessionId, username)
+        res.redirect("/private");
+    }
+
 });
 
 router.get("/signup", async function (req, res) {
     //const sessionId = req.cookies.sessionId;
     //const user = await usersData.getUserInfoById(sessionId);
     res.render("pages/signup", {
-        title: "Sign Up"
+        title: "Sign-Up"
     })
 });
 

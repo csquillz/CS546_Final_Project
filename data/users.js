@@ -35,10 +35,10 @@ async function addUser(firstName, lastName, userName, password) {
 }
 
 async function checkForExistingUser(username) {
-  if (!username) throw "Invalid username";
+  if (!username) return false;
   return users().then(usersCollection => {
     return usersCollection.findOne({ username: username.toLowerCase() }).then(account => {
-      if (!account) throw "username not found";
+      if (!account) return false;
       return account;
     });
   });
@@ -76,10 +76,10 @@ async function validatePassword(username, password) {
 // }
 
 async function validateSessionId(sessionId) {
-  //if (!sessionId) throw "Invalid session Id";
+  if (!sessionId) return false;
   return users().then(usersCollection => {
     return usersCollection.findOne({ sessionId: sessionId }).then(account => {
-      //if (!account) throw "Session Id not found";
+      if (!account) return false;
       return account;
     });
   });
