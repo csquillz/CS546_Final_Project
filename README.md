@@ -23,12 +23,22 @@ This budget tracking tool was created by Shane Lynes, Caroline Squillante and Sh
 - JSON
 - Bootstrap
 
-#### change this 
-
-Spent is an app built on a Flask server with a PostgreSQL database, with SQLAlchemy as the ORM. The front end templating uses Jinja2, the HTML was built using Bootstrap, and the Javascript uses JQuery and AJAX to interact with the backend. The graphs are rendered using Chart.js. The map is built using the Google Maps API, which works in tandem with the Shippo package tracking API. Server routes are tested using the Python unittest module.
 
 
-## Features
+## How To Run
+
+
+There are few simple steps in running our program. You first need to make sure that when you are in the appropriate directory you be sure to install the correct packages to run this program. This can be done by typing "npm install" in the command terminal and pressing enter. Following this step, you can initiate the run process by typing "npm start" in the command prompt. If these two steps are done successfully, you will receive a message looking something similar to this:
+
+"Your server is now listening on port ####! Navigate to http://localhost:#### to access it"
+
+Once you navigate to your local host you will be presented with this start up screen:
+
+(https://user-images.githubusercontent.com/35939416/49965120-4a784b00-feea-11e8-8769-647cb1d98661.png)
+
+
+
+
 
 ![alt text](https://github.com/emilydowgialo/Spent/blob/master/static/spent-login-screenshot.png "Spent Login")
 
