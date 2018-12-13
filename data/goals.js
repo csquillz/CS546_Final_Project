@@ -2,18 +2,16 @@
 const mongoCollections = require("../config/mongoCollections");
 const goals = mongoCollections.goals;
 const uuid = require("node-uuid");
-const bcrypt = require("bcrypt");
-const saltRounds = 16;
 
-async function addGoals(type, amount, month) {
-
-  const hash = await bcrypt.hash(password, saltRounds);
+async function addGoal(type, amount, month, username) {
 
   return goals().then(goalsCollection => {
     let newGoal = {
+        _id: uuid.v4(),
         type: type.toLowerCase(),
-        amount: amount.toLowerCase(),
-        month: month.toLowerCase()
+        amount: amount,
+        month: month,
+        username: username
     };
 
     return goalsCollection
@@ -29,16 +27,9 @@ async function addGoals(type, amount, month) {
 }
 
 async function getAllGoals(username) {
-   for (let goal of goals) {
-     if (user.username === username) {
-      return {
-        type: type.toLowerCase(),
-        amount: amount.toLowerCase(),
-        month: month.toLowerCase() 
-       }
-     }
-   }
- }
+  const goalCollection = await goals();
+  return await goalCollection.find({username: username}).toArray();
+}
 
  async function removeGoal(goal) {
 
@@ -54,5 +45,5 @@ async function getAllGoals(username) {
 }
 
 
-let exportedMethods = { addGoals, getAllGoals, removeGoal }
+let exportedMethods = { addGoal, getAllGoals, removeGoal }
 module.exports = exportedMethods;

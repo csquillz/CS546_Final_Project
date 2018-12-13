@@ -1,134 +1,140 @@
 <input type="hidden" id="loggedInName" value={{firstName}}>
 <div class="main-panel">
-      <div class="content-wrapper">
-        <div class="row">
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-            <div class="card card-statistics">
-              <div class="card-body">
-                <div class="clearfix">
-                  <div class="float-right">
-                    <p class="mb-0 text-right">Total Spending</p>
-                    <div class="fluid-container">
-                      <i class="fa fa-money-bill-wave boxicon"></i>
-                      <h3 class="boxamount">None</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-            <div class="card card-statistics">
-              <div class="card-body">
-                <div class="clearfix">
-                  <div class="float-right">
-                    <p class="mb-0 text-right">Categories</p>
-                    <div class="fluid-container">
-                      <i class="fas fa-funnel-dollar boxicon"></i>
-                      <h3 class="boxamount">None</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-            <div class="card card-statistics">
-              <div class="card-body">
-                <div class="clearfix">
-                  <div class="float-right">
-                    <p class="mb-0 text-right">Goals</p>
-                    <div class="fluid-container">
-                      <i class="fas fa-trophy boxicon"></i>
-                      <h3 class="boxamount">None</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-            <div class="card card-statistics">
-              <div class="card-body">
-                <div class="clearfix">
-                  <div class="float-right">
-                    <p class="mb-0 text-right">Goal Charts</p>
-                    <div class="fluid-container">
-                      <i class="fas fa-chart-pie boxicon"></i>
-                      <h3 class="boxamount">View Charts</h3>
-                    </div>
-                  </div>
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+          <div class="card-body">
+            <div class="clearfix">
+              <div class="float-right">
+                <p class="mb-0 text-right">Total Spending</p>
+                <div class="fluid-container">
+                  <i class="fa fa-money-bill-wave boxicon"></i>
+                  <h3 class="boxamount">None</h3>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 grid-margin">
-            <div class="card">
-              <div class="card-body">
-                <h3 class="card-title goalstitle">Monthly Goals</h3>
-                <button type="button" class="btn btn-outline-success btn-fw addgoal" data-toggle="modal" data-target="#goalModal">Add Goal</button>
-                {{#if transactionData.length}}
-                  <div class="col goalcol">
-                  <div>
-                    <span class="progress-label">Coffee</span>
-                    <span class="pull-right">80% of $100</span>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:80%"></div>
-                    </div>
-                  </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+          <div class="card-body">
+            <div class="clearfix">
+              <div class="float-right">
+                <p class="mb-0 text-right">Categories</p>
+                <div class="fluid-container">
+                  <i class="fas fa-funnel-dollar boxicon"></i>
+                  <h3 class="boxamount">None</h3>
                 </div>
-                {{else}}
-                  <p class="nodata">No goals! Add some by clicking the button above!</p>
-                {{/if}}
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-12 grid-margin">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title transhistory">Monthly Transaction History</h4>
-                <button type="button" class="btn btn-outline-success btn-fw tbutton" data-toggle="modal" data-target="#transactionModal">Add Transaction</button>
-                {{#if transactionData.length}}
-                  <div class="table-responsive">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>
-                          #
-                        </th>
-                        <th>
-                          Category
-                        </th>
-                        <th>
-                          Store
-                        </th>
-                        <th>
-                          Amount
-                        </th>
-                        <th>
-                          Description
-                        </th>
-                        <th>
-                          Date
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </table>
-                </div> 
-                {{else}}
-                  <p class="nodata">No transactions! Add some by clicking the button above!</p>
-                {{/if}}
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+          <div class="card-body">
+            <div class="clearfix">
+              <div class="float-right">
+                <p class="mb-0 text-right">Goals</p>
+                <div class="fluid-container">
+                  <i class="fas fa-trophy boxicon"></i>
+                  <h3 class="boxamount">None</h3>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      <!-- content-wrapper ends -->
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+          <div class="card-body">
+            <div class="clearfix">
+              <div class="float-right">
+                <p class="mb-0 text-right">Goal Charts</p>
+                <div class="fluid-container">
+                  <i class="fas fa-chart-pie boxicon"></i>
+                  <h3 class="boxamount">View Charts</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 grid-margin">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title goalstitle">Monthly Goals</h3>
+            <button type="button" class="btn btn-outline-success btn-fw addgoal" data-toggle="modal" data-target="#goalModal">Add
+              Goal</button>
+            {{#if goalData.length}}
+
+            {{#each goalData}}
+            <div class="col goalcol">
+              <div>
+                <span class="progress-label">{{this.type}}</span>
+                <span class="pull-right">{{this.amount}}% of $ {{this.amount}}</span>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuemin="0"
+                    aria-valuemax="100" style="width:80%"></div>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <p class="nodata">No goals! Add some by clicking the button above!</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 grid-margin">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title transhistory">Monthly Transaction History</h4>
+            <button type="button" class="btn btn-outline-success btn-fw tbutton" data-toggle="modal" data-target="#transactionModal">Add
+              Transaction</button>
+            {{#if transactionData.length}}
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      #
+                    </th>
+                    <th>
+                      Category
+                    </th>
+                    <th>
+                      Store
+                    </th>
+                    <th>
+                      Amount
+                    </th>
+                    <th>
+                      Description
+                    </th>
+                    <th>
+                      Date
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            {{else}}
+            <p class="nodata">No transactions! Add some by clicking the button above!</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
     <!-- main-panel ends -->
   </div>
   <!-- page-body-wrapper ends -->
@@ -147,15 +153,15 @@
         <form>
           <div class="form-group">
             <label for="inputGoalType">Type</label>
-            <input type="type" class="form-control" id="inputGoalType" placeholder="Enter Type">
+            <input type="text" class="form-control" id="inputGoalType" placeholder="Enter Type:">
           </div>
           <div class="form-group">
             <label for="inputGoalAmount">Amount</label>
-            <input type="money" class="form-control" id="inputGoalAmount" placeholder="Enter Amount">
+            <input type="number" min="0.00" step="0.01" class="form-control" id="inputGoalAmount" placeholder="Enter Amount:">
           </div>
           <div class="form-group">
             <label for="inputGoalMonth">Month</label>
-            <input type="monthInput" class="form-control" id="inputGoalMonth" placeholder="Enter Month">
+            <input type="month" class="form-control" id="inputGoalMonth" placeholder="Enter Month:">
           </div>
         </form>
       </div>
@@ -167,7 +173,8 @@
   </div>
 </div>
 <!-- Transaction Modal -->
-<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModalLabel" aria-hidden="true">
+<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -180,19 +187,19 @@
         <form>
           <div class="form-group">
             <label for="inputTransactionType">Type</label>
-            <input type="type" class="form-control" id="inputTransactionType" placeholder="Enter Type">
+            <input type="type" class="form-control" id="inputTransactionType" placeholder="Enter Type:">
           </div>
           <div class="form-group">
             <label for="inputTransactionAmount">Amount</label>
-            <input type="money" class="form-control" id="inputTransactionAmount" placeholder="Enter Amount">
+            <input type="money" class="form-control" id="inputTransactionAmount" placeholder="Enter Amount:">
           </div>
           <div class="form-group">
             <label for="inputTransactionDate">Date</label>
-            <input type="date" class="form-control" id="inputTransactionDate" placeholder="Enter Month">
+            <input type="date" class="form-control" id="inputTransactionDate" placeholder="Enter Month:">
           </div>
           <div class="form-group">
             <label for="inputTransactionDescription">Description</label>
-            <input type="description" class="form-control" id="inputTransactionDescription" placeholder="Enter Description">
+            <input type="description" class="form-control" id="inputTransactionDescription" placeholder="Enter Description:">
           </div>
         </form>
       </div>
