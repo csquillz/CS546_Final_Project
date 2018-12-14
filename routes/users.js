@@ -122,7 +122,6 @@ router.get("/private", async function (req, res) {
     let totalSpending = utilities.totalSpending(transactionData);
     let totalCategories = utilities.totalCategories(transactionData);
     let totalGoals = utilities.totalGoals(goalData);
-    let transactionData = [];
     res.render("pages/private", {
         firstName: user.Account.firstName,
         lastName: user.Account.lastName,
