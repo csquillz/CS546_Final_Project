@@ -8,10 +8,12 @@
 
 ## How to Run
 - Clone the repository
-- Ppen a command window and  run the comman "npm run seed" to add information to the database
-- Navigate the "http://localhost:3000/"
+- Open a command window and  run the command "npm run seed" to add information to the database
+- After that is complete, run the command "npm start" to start the server
+- Navigate to "http://localhost:3000/" in your browser
 - Sign in using the username: "csquilla" and password: "CSRocks" or make a new user
 - You should now be resirected to the "private" part of the application
+- Start adding transactions and goals!
 
 ## About the Developers
 
