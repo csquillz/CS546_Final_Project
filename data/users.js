@@ -28,8 +28,8 @@ async function addUser(firstName, lastName, userName, password) {
         return newInsertInformation.insertedId;
       })
       .then(newId => {
-        return true;
-        //return this.getUserById(newId);
+        return newId;
+        //return this.checkForExistingUser(newId);
       });
   });
 }
@@ -38,6 +38,16 @@ async function checkForExistingUser(username) {
   if (!username) return false;
   return users().then(usersCollection => {
     return usersCollection.findOne({ username: username.toLowerCase() }).then(account => {
+      if (!account) return false;
+      return account;
+    });
+  });
+}
+
+async function checkForExistingUserById(userId) {
+  if (!userId) return false;
+  return users().then(usersCollection => {
+    return usersCollection.findOne({ _id: userId}).then(account => {
       if (!account) return false;
       return account;
     });
@@ -97,5 +107,5 @@ async function removeSessionId(sessionId) {
 }
 
 
-let exportedMethods = { addUser, checkForExistingUser, validatePassword, validateSessionId, getUserInfoById, addSessionId, removeSessionId }
+let exportedMethods = { addUser, checkForExistingUser, checkForExistingUserById, validatePassword, validateSessionId, getUserInfoById, addSessionId, removeSessionId }
 module.exports = exportedMethods;
