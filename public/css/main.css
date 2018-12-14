@@ -383,3 +383,7 @@ pre {
   text-align: center;
   padding-bottom: 50px;
 }
+
+a:hover {
+  text-decoration: none;
+}
