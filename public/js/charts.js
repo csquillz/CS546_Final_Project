@@ -23,7 +23,7 @@ $(document).ready(function () {
         }
     });
 
-    $.ajax( '/pieChartData', {
+    $.ajax( '/getBarChartData', {
         type: 'GET',
         dataType: 'json',
         success: function(data) {
