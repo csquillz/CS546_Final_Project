@@ -15,4 +15,9 @@ router.post("/goal", async function (req, res) {
     await goalsData.addGoal(type, amount, month, username);
 });
 
+router.post("/removegoal", async function (req, res) {
+    let goalId = req.body.id;
+    await goalsData.removeGoal(goalId);
+});
+
 module.exports = router;

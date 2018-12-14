@@ -7,11 +7,11 @@ async function addGoal(type, amount, month, username) {
 
   return goals().then(goalsCollection => {
     let newGoal = {
-        _id: uuid.v4(),
-        type: type.toLowerCase(),
-        amount: amount,
-        month: month,
-        username: username
+      _id: uuid.v4(),
+      type: type.toLowerCase(),
+      amount: amount,
+      month: month,
+      username: username
     };
 
     return goalsCollection
@@ -28,20 +28,19 @@ async function addGoal(type, amount, month, username) {
 
 async function getAllGoals(username) {
   const goalCollection = await goals();
-  return await goalCollection.find({username: username}).toArray();
+  return await goalCollection.find({ username: username }).toArray();
 }
 
- async function removeGoal(goal) {
-
+async function removeGoal(goalId) {
+  if (!goalId) throw "You must provide an id to be removed";
   const goalCollection = await goals();
+  
+  const deletionInfo = await goalCollection.removeOne({ _id: goalId});
 
-  const updatedInfo = await goalCollection.updateOne({ sessionId: sessionId }, { $set: {sessionId: null }});
-
-  if (updatedInfo.modifiedCount === 0) {
-    throw "could not update goal successfully";
+  if (deletionInfo.deletedCount === 0) {
+    throw `Could not delete goal with id of ${goalId}`;
   }
-
-  return await this.getGoalInfoByUsername(username);
+  return true;
 }
 
 
