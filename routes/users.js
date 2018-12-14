@@ -115,7 +115,6 @@ router.get("/private", async function (req, res) {
     const sessionId = req.cookies.sessionId;
     const user = await usersData.getUserInfoById(sessionId);
     let goalData = await goalsData.getAllGoals(user.Account.userName)
-    console.log(goalData);
     let transactionData = [];
     res.render("pages/private", {
         firstName: user.Account.firstName,
