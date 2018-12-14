@@ -3,6 +3,8 @@ const router = express.Router();
 const data = require("../data");
 const usersData = data.users;
 const goalsData = data.goals;
+const utilities = require("../data/utilities");
+const transHistory = data.transHistory;
 const uuid = require("node-uuid");
 
 router.use("/", async function (req, res, next) {
@@ -114,13 +116,22 @@ router.get("/", async function (req, res) {
 router.get("/private", async function (req, res) {
     const sessionId = req.cookies.sessionId;
     const user = await usersData.getUserInfoById(sessionId);
+    let preGoalData = await goalsData.getAllGoals(user.Account.userName);
+    let transactionData = await transHistory.getAllTransactions(user.Account.userName);
+    let goalData = utilities.percentOfGoals(preGoalData, transactionData);
+    let totalSpending = utilities.totalSpending(transactionData);
+    let totalCategories = utilities.totalCategories(transactionData);
+    let totalGoals = utilities.totalGoals(goalData);
     let goalData = await goalsData.getAllGoals(user.Account.userName)
     let transactionData = [];
     res.render("pages/private", {
         firstName: user.Account.firstName,
         lastName: user.Account.lastName,
         goalData: goalData,
-        transactions: transactionData
+        transactionData: transactionData,
+        totalSpending: totalSpending,
+        totalCategories: totalCategories,
+        totalGoals: totalGoals
     });
 });
 
