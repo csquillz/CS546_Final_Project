@@ -23,6 +23,25 @@ const handlebarsInstance = exphbs.create({
   }
 });
 
+Handlebars.registerHelper("inc", function(value, options)
+{
+    return parseInt(value) + 1;
+});
+
+Handlebars.registerHelper("money", function(value, options)
+{
+    return "$" + parseInt(value).toFixed(2) + "";
+});
+
+Handlebars.registerHelper("ifEqual", function(arg1, arg2, options) {
+    if (arg1 > arg2) {
+      return true;
+    } else {
+      return false;
+    }
+});
+
+
 const rewriteUnsupportedBrowserMethods = (req, res, next) => {
     // If the user posts to the server with a property called _method, rewrite the request's method
     // To be that method; so if they post _method=PUT you can now allow browsers to POST to a route that gets

@@ -10,7 +10,7 @@
                 <p class="mb-0 text-right">Total Spending</p>
                 <div class="fluid-container">
                   <i class="fa fa-money-bill-wave boxicon"></i>
-                  <h3 class="boxamount">None</h3>
+                  <h3 class="boxamount">{{money totalSpending}}</h3>
                 </div>
               </div>
             </div>
@@ -25,7 +25,7 @@
                 <p class="mb-0 text-right">Categories</p>
                 <div class="fluid-container">
                   <i class="fas fa-funnel-dollar boxicon"></i>
-                  <h3 class="boxamount">None</h3>
+                  <h3 class="boxamount">{{totalCategories}}</h3>
                 </div>
               </div>
             </div>
@@ -40,7 +40,7 @@
                 <p class="mb-0 text-right">Goals</p>
                 <div class="fluid-container">
                   <i class="fas fa-trophy boxicon"></i>
-                  <h3 class="boxamount">None</h3>
+                  <h3 class="boxamount">{{totalGoals}}</h3>
                 </div>
               </div>
             </div>
@@ -76,12 +76,12 @@
             <div class="col goalcol">
               <div>
                 <span class="progress-label">{{this.type}}</span>
-                <span class="pull-right">{{this.amount}}% of $ {{this.amount}}</span>
+                <span class="pull-right">{{this.percent}}% of ${{this.amount}}</span>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuemin="0"
-                    aria-valuemax="100" style="width:80%"></div>
+                  <div id="{{this.percent}}" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0"
+                    aria-valuemax="100" style="width:{{this.percent}}%"></div>
                 </div>
-              </div>
+                </div>
             </div>
             {{/each}}
             {{else}}
@@ -122,6 +122,28 @@
                       Date
                     </th>
                   </tr>
+                  {{#each transactionData}}
+                  <tr>
+                    <th>
+                      {{inc @index}}
+                    </th>
+                    <th>
+                      {{this.type}}
+                    </th>
+                    <th>
+                      {{this.store}}
+                    </th>
+                    <th>
+                      {{money this.amount}}
+                    </th>
+                    <th>
+                      {{this.description}}
+                    </th>
+                    <th>
+                      {{this.date}}
+                    </th>
+                  </tr>
+                  {{/each}}
                 </thead>
                 <tbody>
                 </tbody>
@@ -190,8 +212,12 @@
             <input type="type" class="form-control" id="inputTransactionType" placeholder="Enter Type:">
           </div>
           <div class="form-group">
+            <label for="inputTransactionStore">Store</label>
+            <input type="type" class="form-control" id="inputTransactionStore" placeholder="Enter Store:">
+          </div>
+          <div class="form-group">
             <label for="inputTransactionAmount">Amount</label>
-            <input type="money" class="form-control" id="inputTransactionAmount" placeholder="Enter Amount:">
+            <input type="number" class="form-control" id="inputTransactionAmount" placeholder="Enter Amount:">
           </div>
           <div class="form-group">
             <label for="inputTransactionDate">Date</label>

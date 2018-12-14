@@ -5,6 +5,17 @@ $(document).ready(function () {
 
     $('.logout-btn').css('display', 'block');
 
+    $('.progress-bar').each(function() {
+        let width = $(this).attr('id');
+        if (width > 79) {
+            $(this).addClass('bg-danger');
+        } else if (width > 39) {
+            $(this).addClass('bg-warning');
+        } else {
+            $(this).addClass('bg-success');
+        }
+    });
+
     $('#goalSubmit').click(function() {
         let data = {
             type: $('#inputGoalType').val(),
@@ -37,12 +48,11 @@ $(document).ready(function () {
     $('#transactionSubmit').click(function() {
         let data = {
             type: $('#inputTransactionType').val(),
+            store: $('#inputTransactionStore').val(),
             amount: $('#inputTransactionAmount').val(),
-            month: $('#inputTransactionDate').val(),
+            date: $('#inputTransactionDate').val(),
             description: $('#inputTransactionDescription').val()
         };
-
-        console.log(JSON.stringify(data));
 
         $.ajax({
             type: 'POST',
@@ -50,6 +60,15 @@ $(document).ready(function () {
             data: data,
             dataType: 'json'
         });
+
+        $.ajax({
+            type: 'GET',
+            url: '/private',
+            data: data
+        }).done(function(){
+            window.location = window.location;
+        });
+
     });
 
     $('#transactionModal').on('hidden.bs.modal', function () {

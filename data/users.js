@@ -46,9 +46,6 @@ async function checkForExistingUser(username) {
 
 async function validatePassword(username, password) {
   const userInfo = await checkForExistingUser(username);
-  // console.log(userInfo)
-  // console.log(userInfo.hashedPassword)
-  //console.log(password)
   let compareToMatch = false
   try {
     compareToMatch = await bcrypt.compare(password, String(userInfo.hashedPassword))
@@ -58,22 +55,6 @@ async function validatePassword(username, password) {
   return compareToMatch;
 }
 
-// async function getInfo(username) {
-//   for (let user of users) {
-//     if (user.username === username) {
-//       return {
-//         _id: user._id,
-//         username: user.username,
-//         hashedPassword: user.hashedPassword,
-//         Account: {
-//           _id: user._id,
-//           firstName: user.firstName,
-//           lastName: user.lastName
-//         }
-//       }
-//     }
-//   }
-// }
 
 async function validateSessionId(sessionId) {
   if (!sessionId) return false;
@@ -92,16 +73,13 @@ async function getUserInfoById(sessionId) {
 async function addSessionId(newsessionId, username) {
   const usersCollection = await users();
 
-  //console.log(username);
-  //console.log(sessionId);
-  // console.log(await checkForExistingUser(username));
-  //const updatedUser =  await usersCollection.findOne({ username: username })
+
   const updatedInfo = await usersCollection.updateOne({ username: username }, { $set: {sessionId: newsessionId}});
-  //console.log(updatedUser)
+
   if (updatedInfo.modifiedCount === 0) {
     throw "could not update session id successfully";
   }
-  //console.log(await checkForExistingUser(username));
+
   return await this.checkForExistingUser(username);
 }
 
