@@ -358,6 +358,7 @@ pre {
 
 .logout{
   padding: 2rem;
+  text-align: center;
 }
 
 .error-msg{
