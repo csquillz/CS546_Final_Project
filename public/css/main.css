@@ -28,7 +28,17 @@ body {
 }
 
 .goalcol {
-  padding-top: 40px;
+  padding-top: 15px;
+  padding-right: 0px;
+  padding-left: 0px;
+  display: table;
+}
+
+.goalcolbtn {
+  display: inline;
+  /* padding-right: 0px;
+  padding-left: 0px; */
+  /* padding-top: 55px; */
 }
 
 .goalstitle {
@@ -46,6 +56,39 @@ body {
 }
 
 .addgoal:hover {
+  background-color: #216C2A;
+}
+
+.removegoal {
+  margin-top: 0.8rem;
+  /* //display: inline; */
+  float: right;
+  width: 150px;
+  height: 28px;
+  font-size: 11px;
+  border-color: #216C2A;
+  color: #216C2A;
+  text-transform: capitalize;
+}
+
+.removegoal:hover {
+  background-color: #216C2A;
+}
+
+.removetrans {
+  display: inline;
+  font-size: 12px;
+  border-color: #216C2A;
+  color: #216C2A;
+  text-transform: capitalize;
+  overflow-wrap: break-word;
+}
+
+.transbtnHolder{
+  text-align: center;
+}
+
+.removetrans:hover {
   background-color: #216C2A;
 }
 

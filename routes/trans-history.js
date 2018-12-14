@@ -17,4 +17,9 @@ router.post("/transHistory", async function (req, res) {
     await transData.addTransaction(type, store, amount, date, description, username);
 });
 
+router.post("/removetrans", async function (req, res) {
+    let transId = req.body.id;
+    await transData.removeTransaction(transId);
+});
+
 module.exports = router;

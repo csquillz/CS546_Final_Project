@@ -30,5 +30,17 @@ async function getAllTransactions(username) {
     return await transactionCollection.find({username: username}).toArray();
 }
 
-let exportedMethods = { addTransaction, getAllTransactions }
+async function removeTransaction(transId) {
+    if (!transId) throw "You must provide an id to be removed";
+    const transactionCollection = await trans_history();
+    
+    const deletionInfo = await transactionCollection.removeOne({ _id: transId});
+  
+    if (deletionInfo.deletedCount === 0) {
+      throw `Could not delete transaction with id of ${transId}`;
+    }
+    return true;
+  }
+
+let exportedMethods = { addTransaction, getAllTransactions, removeTransaction}
 module.exports = exportedMethods;

@@ -16,6 +16,41 @@ $(document).ready(function () {
         }
     });
 
+    $('.removegoal').click(function() {
+        let goalId =  $(this).attr("data")
+        console.log(goalId);
+        $.ajax({
+            type: 'POST',
+            url: '/removegoal',
+            data: {"id": goalId}
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: '/private'
+        }).done(function(){
+            window.location = window.location;
+        });
+
+    });
+
+    $('.removetrans').click(function() {
+        let transId =  $(this).attr("data")
+        $.ajax({
+            type: 'POST',
+            url: '/removetrans',
+            data: {"id": transId}
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: '/private'
+        }).done(function(){
+            window.location = window.location;
+        });
+
+    });
+
     $('#goalSubmit').click(function() {
         let data = {
             type: $('#inputGoalType').val(),
