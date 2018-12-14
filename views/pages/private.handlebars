@@ -55,7 +55,9 @@
                 <p class="mb-0 text-right">Current Month Charts</p>
                 <div class="fluid-container">
                   <i class="fas fa-chart-pie boxicon"></i>
-                  <a href="/charts"><h3 class="boxamount">View Charts</h3></a>
+                  <a href="/charts">
+                    <h3 class="boxamount">View Charts</h3>
+                  </a>
                 </div>
               </div>
             </div>
@@ -81,7 +83,12 @@
                   <div id="{{this.percent}}" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0"
                     aria-valuemax="100" style="width:{{this.percent}}%"></div>
                 </div>
-                </div>
+              </div>
+            </div>
+            <div class="col goalcolbtn">
+              <button id="goalRemove" data={{this._id}} type="button" class="btn btn-outline-success btn-fw removegoal">Remove
+                {{this.type}} Goal
+              </button>
             </div>
             {{/each}}
             {{else}}
@@ -121,6 +128,9 @@
                     <th>
                       Date
                     </th>
+                    <th>
+        
+                    </th>
                   </tr>
                   {{#each transactionData}}
                   <tr>
@@ -141,6 +151,10 @@
                     </th>
                     <th>
                       {{this.date}}
+                    </th>
+                    <th class="transbtnHolder">
+                      <button id="transRemove" data={{this._id}} type="button" class="btn btn-outline-success btn-fw removetrans">Remove
+                        Transaction</button>
                     </th>
                   </tr>
                   {{/each}}
