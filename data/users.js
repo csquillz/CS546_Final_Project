@@ -128,6 +128,5 @@ async function removeSessionId(sessionId) {
   return await this.getUserInfoById(sessionId);
 }
 
-
 let exportedMethods = { addUser, checkForExistingUser, checkForExistingUserById, validatePassword, validateSessionId, getUserInfoById, addSessionId, removeSessionId }
 module.exports = exportedMethods;
