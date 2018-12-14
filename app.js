@@ -30,7 +30,7 @@ Handlebars.registerHelper("inc", function(value, options)
 
 Handlebars.registerHelper("money", function(value, options)
 {
-    return "$" + parseInt(value).toFixed(2) + "";
+    return "$" + parseFloat(value).toFixed(2) + "";
 });
 
 Handlebars.registerHelper("ifEqual", function(arg1, arg2, options) {
