@@ -1,7 +1,7 @@
 function totalSpending(transactions) {
     let totalSpending = 0;
     transactions.forEach(elem => {
-        totalSpending += elem.amount;
+        totalSpending += parseFloat(elem.amount);
     });
     return totalSpending;
 }
@@ -25,7 +25,7 @@ function percentOfGoals(goals, transactions) {
         var totalSpending = 0;
         transactions.forEach(trans => {
             if (trans.type == goal.type) {
-                totalSpending += trans.amount;
+                totalSpending += parseFloat(trans.amount);
             }
         });
         if (totalSpending == 0) {
