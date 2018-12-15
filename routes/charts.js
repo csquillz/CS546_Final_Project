@@ -6,6 +6,7 @@ const goalsData = data.goals;
 const utilities = require("../data/utilities");
 const transHistory = data.transHistory;
 const uuid = require("node-uuid");
+const xss = require("xss");
 
 router.get("/charts", async function (req, res) {
     const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -19,7 +20,7 @@ router.get("/charts", async function (req, res) {
 
 router.get("/pieChartData", async function (req, res) {
     res.setHeader('Content-Type', 'application/json');
-    let sessionId = req.cookies.sessionId;
+    let sessionId = xss(req.cookies.sessionId);
     let userInfo = await userData.getUserInfoById(sessionId);
     let username = userInfo.Account.userName;
     let data = await transHistory.getAllTransactions(username);
@@ -40,7 +41,7 @@ router.get("/pieChartData", async function (req, res) {
 });
 
 router.get("/getBarChartData", async function (req, res) {
-    let sessionId = req.cookies.sessionId;
+    let sessionId =  xss(req.cookies.sessionId);
     let userInfo = await userData.getUserInfoById(sessionId);
     let username = userInfo.Account.userName;
     let data = await transHistory.getAllTransactions(username);
