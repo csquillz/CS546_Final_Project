@@ -97,7 +97,7 @@ router.post("/login", async function (req, res) {
             error: error
         });
     }
-    return res.cookies.sessionId
+    return req.cookies.sessionId
 });
 
 router.get("/", async function (req, res) {

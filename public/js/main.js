@@ -18,7 +18,6 @@ $(document).ready(function () {
 
     $('.removegoal').click(function () {
         let goalId = $(this).attr("id")
-        console.log(goalId);
         $.ajax({
             type: 'POST',
             url: '/removegoal',
@@ -52,12 +51,6 @@ $(document).ready(function () {
     });
 
     $('#goalSubmit').click(function () {
-        let data = {
-            type: $('#inputGoalType').val(),
-            amount: $('#inputGoalAmount').val(),
-            month: $('#inputGoalMonth').val()
-        };
-
         var forms = document.getElementsByClassName('needs-validation');
         // Loop over them and prevent submission
         var validation = Array.prototype.filter.call(forms, function (form) {
@@ -66,6 +59,12 @@ $(document).ready(function () {
                     event.preventDefault();
                     event.stopPropagation();
                 }else{
+                    let data = {
+                        type: $('#inputGoalType').val(),
+                        amount: $('#inputGoalAmount').val(),
+                        month: $('#inputGoalMonth').val()
+                    };
+
                     $.ajax({
                         type: 'POST',
                         url: '/goal',
@@ -91,14 +90,6 @@ $(document).ready(function () {
     });
 
     $('#transactionSubmit').click(function () {
-        let data = {
-            type: $('#inputTransactionType').val(),
-            store: $('#inputTransactionStore').val(),
-            amount: $('#inputTransactionAmount').val(),
-            date: $('#inputTransactionDate').val(),
-            description: $('#inputTransactionDescription').val()
-        };
-
         var forms = document.getElementsByClassName('needs-validation');
         // Loop over them and prevent submission
         var validation = Array.prototype.filter.call(forms, function (form) {
@@ -107,6 +98,14 @@ $(document).ready(function () {
                     event.preventDefault();
                     event.stopPropagation();
                 }else{
+                    let data = {
+                        type: $('#inputTransactionType').val(),
+                        store: $('#inputTransactionStore').val(),
+                        amount: $('#inputTransactionAmount').val(),
+                        date: $('#inputTransactionDate').val(),
+                        description: $('#inputTransactionDescription').val()
+                    };
+
                     $.ajax({
                         type: 'POST',
                         url: '/transHistory',
