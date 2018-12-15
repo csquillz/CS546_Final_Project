@@ -396,7 +396,7 @@ pre {
 .active.nav-link{
   padding-left: 0rem;
   padding-bottom: 1rem;
-  color: #007bff !important;
+  color: #4169E1 !important;
 }
 
 .logout{
@@ -429,4 +429,13 @@ pre {
 
 a:hover {
   text-decoration: none;
+}
+
+a {
+  color: #4169E1 !important;
+}
+
+.btn-primary{
+  background-color: #4169E1;
+  border-color:  #4169E1;
 }

@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    $('.logout-btn').css('display', 'block');
+    
     $.ajax( '/pieChartData', {
         type: 'GET',
         dataType: 'json',
