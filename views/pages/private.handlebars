@@ -86,7 +86,7 @@
               </div>
             </div>
             <div class="col goalcolbtn">
-              <button id="goalRemove" data={{this._id}} type="button" class="btn btn-outline-success btn-fw removegoal">Remove
+              <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw removegoal">Remove
                 Goal
               </button>
             </div>
@@ -153,7 +153,7 @@
                       {{this.date}}
                     </th>
                     <th class="transbtnHolder">
-                      <button id="transRemove" data={{this._id}} type="button" class="btn btn-outline-success btn-fw removetrans">Remove
+                      <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw removetrans">Remove
                         Transaction</button>
                     </th>
                   </tr>
@@ -204,7 +204,7 @@
           </div>
           <div class="form-group">
             <label for="inputGoalMonth">Month</label>
-            <input type="month" class="form-control" id="inputGoalMonth" placeholder="Enter Month" required>
+            <input type="month" class="form-control" id="inputGoalMonth" required>
             <div class="invalid-feedback">
               Please enter a Month.
             </div>
@@ -234,14 +234,14 @@
         <form class="needs-validation" novalidate>
           <div class="form-group">
             <label for="inputTransactionType">Type</label>
-            <input type="type" class="form-control" id="inputTransactionType" placeholder="Enter Type" required>
+            <input type="text" class="form-control" id="inputTransactionType" placeholder="Enter Type" required>
             <div class="invalid-feedback">
               Please enter a Type.
             </div>
           </div>
           <div class="form-group">
             <label for="inputTransactionStore">Store</label>
-            <input type="type" class="form-control" id="inputTransactionStore" placeholder="Enter Store" required>
+            <input type="text" class="form-control" id="inputTransactionStore" placeholder="Enter Store" required>
             <div class="invalid-feedback">
               Please enter a Store.
             </div>
@@ -256,14 +256,14 @@
           </div>
           <div class="form-group">
             <label for="inputTransactionDate">Date</label>
-            <input type="date" class="form-control" id="inputTransactionDate" placeholder="Enter Month" required>
+            <input type="date" class="form-control" id="inputTransactionDate" required>
             <div class="invalid-feedback">
               Please enter a Date.
             </div>
           </div>
           <div class="form-group">
             <label for="inputTransactionDescription">Description</label>
-            <input type="description" class="form-control" id="inputTransactionDescription" placeholder="Enter Description">
+            <input type="text" class="form-control" id="inputTransactionDescription" placeholder="Enter Description">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

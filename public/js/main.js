@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
 
     $('.removegoal').click(function () {
-        let goalId = $(this).attr("data")
+        let goalId = $(this).attr("id")
         console.log(goalId);
         $.ajax({
             type: 'POST',
@@ -35,7 +35,7 @@ $(document).ready(function () {
     });
 
     $('.removetrans').click(function () {
-        let transId = $(this).attr("data")
+        let transId = $(this).attr("id")
         $.ajax({
             type: 'POST',
             url: '/removetrans',
