@@ -33,7 +33,7 @@ function percentOfGoals(goals, transactions) {
         } else {
             var value = (totalSpending / goal.amount) * 100;
         }
-        goal.percent = value;
+        goal.percent = value.toFixed(2);
     });
     return goals;
 }

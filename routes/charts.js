@@ -52,7 +52,7 @@ router.get("/getBarChartData", async function (req, res) {
         if (d.getMonth() + 1 == currentMonth) {
             let data = {
                 amount: elem.amount,
-                type: elem.store
+                type: elem.type
             }
             finalData.push(data);
         }

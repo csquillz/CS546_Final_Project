@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     $('.logout-btn').css('display', 'block');
 
-    $('.progress-bar').each(function() {
+    $('.progress-bar').each(function () {
         let width = $(this).attr('id');
         if (width > 79) {
             $(this).addClass('bg-danger');
@@ -16,71 +16,83 @@ $(document).ready(function () {
         }
     });
 
-    $('.removegoal').click(function() {
-        let goalId =  $(this).attr("data")
+    $('.removegoal').click(function () {
+        let goalId = $(this).attr("data")
         console.log(goalId);
         $.ajax({
             type: 'POST',
             url: '/removegoal',
-            data: {"id": goalId}
+            data: { "id": goalId }
         });
 
         $.ajax({
             type: 'GET',
             url: '/private'
-        }).done(function(){
+        }).done(function () {
             window.location = window.location;
         });
 
     });
 
-    $('.removetrans').click(function() {
-        let transId =  $(this).attr("data")
+    $('.removetrans').click(function () {
+        let transId = $(this).attr("data")
         $.ajax({
             type: 'POST',
             url: '/removetrans',
-            data: {"id": transId}
+            data: { "id": transId }
         });
 
         $.ajax({
             type: 'GET',
             url: '/private'
-        }).done(function(){
+        }).done(function () {
             window.location = window.location;
         });
 
     });
 
-    $('#goalSubmit').click(function() {
+    $('#goalSubmit').click(function () {
         let data = {
             type: $('#inputGoalType').val(),
             amount: $('#inputGoalAmount').val(),
             month: $('#inputGoalMonth').val()
         };
 
-        $.ajax({
-            type: 'POST',
-            url: '/goal',
-            data: data,
-            dataType: 'json'
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }else{
+                    $.ajax({
+                        type: 'POST',
+                        url: '/goal',
+                        data: data,
+                        dataType: 'json'
+                    });
+            
+                    $.ajax({
+                        type: 'GET',
+                        url: '/private',
+                        data: data
+                    }).done(function () {
+                        window.location = window.location;
+                    });
+                }
+                form.classList.add('was-validated');
+            }, false);
         });
 
-        $.ajax({
-            type: 'GET',
-            url: '/private',
-            data: data
-        }).done(function(){
-            window.location = window.location;
-        });
-
-        $('#goalModal').modal('hide');
+        //$('#goalModal').modal('hide');
     });
 
     $('#goalModal').on('hidden.bs.modal', function () {
         $(this).find('form').trigger('reset');
     });
 
-    $('#transactionSubmit').click(function() {
+    $('#transactionSubmit').click(function () {
         let data = {
             type: $('#inputTransactionType').val(),
             store: $('#inputTransactionStore').val(),
@@ -89,19 +101,31 @@ $(document).ready(function () {
             description: $('#inputTransactionDescription').val()
         };
 
-        $.ajax({
-            type: 'POST',
-            url: '/transHistory',
-            data: data,
-            dataType: 'json'
-        });
-
-        $.ajax({
-            type: 'GET',
-            url: '/private',
-            data: data
-        }).done(function(){
-            window.location = window.location;
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }else{
+                    $.ajax({
+                        type: 'POST',
+                        url: '/transHistory',
+                        data: data,
+                        dataType: 'json'
+                    });
+            
+                    $.ajax({
+                        type: 'GET',
+                        url: '/private',
+                        data: data
+                    }).done(function () {
+                        window.location = window.location;
+                    });
+                }
+                form.classList.add('was-validated');
+            }, false);
         });
 
     });

@@ -129,7 +129,7 @@
                       Date
                     </th>
                     <th>
-        
+
                     </th>
                   </tr>
                   {{#each transactionData}}
@@ -186,25 +186,36 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
+        <form class="needs-validation" novalidate>
+          <div>
             <label for="inputGoalType">Type</label>
-            <input type="text" class="form-control" id="inputGoalType" placeholder="Enter Type">
+            <input type="text" class="form-control" id="inputGoalType" placeholder="Enter Type" required>
+            <div class="invalid-feedback">
+              Please enter a Type.
+            </div>
           </div>
           <div class="form-group">
             <label for="inputGoalAmount">Amount</label>
-            <input type="number" min="0.00" step="0.01" class="form-control" id="inputGoalAmount" placeholder="Enter Amount">
+            <input type="number" min="0.00" step="0.01" class="form-control" id="inputGoalAmount" placeholder="Enter Amount"
+              required>
+              <div class="invalid-feedback">
+              Please enter an Amount.
+            </div>
           </div>
           <div class="form-group">
             <label for="inputGoalMonth">Month</label>
-            <input type="month" class="form-control" id="inputGoalMonth" placeholder="Enter Month">
+            <input type="month" class="form-control" id="inputGoalMonth" placeholder="Enter Month" required>
+            <div class="invalid-feedback">
+              Please enter a Month.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button id="goalSubmit" type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="goalSubmit" type="button" class="btn btn-primary">Submit</button>
-      </div>
+
     </div>
   </div>
 </div>
@@ -220,32 +231,45 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form class="needs-validation" novalidate>
           <div class="form-group">
             <label for="inputTransactionType">Type</label>
-            <input type="type" class="form-control" id="inputTransactionType" placeholder="Enter Type:">
+            <input type="type" class="form-control" id="inputTransactionType" placeholder="Enter Type" required>
+            <div class="invalid-feedback">
+              Please enter a Type.
+            </div>
           </div>
           <div class="form-group">
             <label for="inputTransactionStore">Store</label>
-            <input type="type" class="form-control" id="inputTransactionStore" placeholder="Enter Store:">
+            <input type="type" class="form-control" id="inputTransactionStore" placeholder="Enter Store" required>
+            <div class="invalid-feedback">
+              Please enter a Store.
+            </div>
           </div>
           <div class="form-group">
             <label for="inputTransactionAmount">Amount</label>
-            <input type="number" class="form-control" id="inputTransactionAmount" placeholder="Enter Amount:">
+            <input type="number" min="0.00" step="0.01" class="form-control" id="inputTransactionAmount" placeholder="Enter Amount"
+              required>
+            <div class="invalid-feedback">
+              Please enter an Amount.
+            </div>
           </div>
           <div class="form-group">
             <label for="inputTransactionDate">Date</label>
-            <input type="date" class="form-control" id="inputTransactionDate" placeholder="Enter Month:">
+            <input type="date" class="form-control" id="inputTransactionDate" placeholder="Enter Month" required>
+            <div class="invalid-feedback">
+              Please enter a Date.
+            </div>
           </div>
           <div class="form-group">
             <label for="inputTransactionDescription">Description</label>
-            <input type="description" class="form-control" id="inputTransactionDescription" placeholder="Enter Description:">
+            <input type="description" class="form-control" id="inputTransactionDescription" placeholder="Enter Description">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button id="transactionSubmit" type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="transactionSubmit" type="button" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
