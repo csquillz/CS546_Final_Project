@@ -29,7 +29,12 @@ router.get("/pieChartData", async function (req, res) {
     var currentMonth = currentDate.getMonth() + 1;
     data.forEach(elem => {
         var d = new Date(elem.date);
-        if (d.getMonth() + 1 == currentMonth) {
+        var day = elem.date.substring(elem.date.lastIndexOf("-")+1)
+        var month = d.getMonth() + 1;
+        if (day == "01") {
+            month = new Date().getMonth() + 1;
+        }
+        if (month == currentMonth) {
             let data = {
                 amount: elem.amount,
                 type: elem.store
@@ -50,7 +55,12 @@ router.get("/getBarChartData", async function (req, res) {
     var currentMonth = currentDate.getMonth() + 1;
     data.forEach(elem => {
         var d = new Date(elem.date);
-        if (d.getMonth() + 1 == currentMonth) {
+        var day = elem.date.substring(elem.date.lastIndexOf("-")+1)
+        var month = d.getMonth() + 1;
+        if (day == "01") {
+            month = new Date().getMonth() + 1;
+        }
+        if (month == currentMonth) {
             let data = {
                 amount: elem.amount,
                 type: elem.type
