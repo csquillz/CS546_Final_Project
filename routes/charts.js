@@ -8,7 +8,19 @@ const transHistory = data.transHistory;
 const uuid = require("node-uuid");
 const xss = require("xss");
 
+router.use("/charts", async function (req, res, next) {
+    if (xss(req.cookies.name) === 'AuthCookie' && await userData.validateSessionId(xss(req.cookies.sessionId))) {
+        next();
+    } else {
+        res.clearCookie('name')
+        res.clearCookie('sessionId')
+        res.redirect("/")
+        return;
+    }
+});
+
 router.get("/charts", async function (req, res) {
+    
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
     ];
