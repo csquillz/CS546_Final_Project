@@ -84,8 +84,6 @@ $(document).ready(function () {
                 form.classList.add('was-validated');
             }, false);
         });
-
-        //$('#goalModal').modal('hide');
     });
 
     $('#goalModal').on('hidden.bs.modal', function () {

@@ -58,9 +58,7 @@ router.post("/signup", async function (req, res) {
         });
     } else {
         await usersData.addUser(firstName, lastName, username, password);
-        //add auth check?
         res.cookie('name', 'AuthCookie')
-        //await usersData.getInfo(username);
         const sessionId = uuid.v4();
         res.cookie("sessionId", sessionId)
         await usersData.addSessionId(sessionId, username)
@@ -70,8 +68,6 @@ router.post("/signup", async function (req, res) {
 });
 
 router.get("/signup", async function (req, res) {
-    //const sessionId = req.cookies.sessionId;
-    //const user = await usersData.getUserInfoById(sessionId);
     res.render("pages/signup", {
         title: "Sign-Up"
     })
@@ -85,7 +81,6 @@ router.post("/login", async function (req, res) {
     const goodPassword = await usersData.validatePassword(username, password);
     if (goodUsername && goodPassword) {
         res.cookie('name', 'AuthCookie')
-        //await usersData.getInfo(username);
         const sessionId = uuid.v4();
         res.cookie("sessionId", sessionId)
         await usersData.addSessionId(sessionId, username)
