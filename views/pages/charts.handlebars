@@ -1,35 +1,30 @@
-<body>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-lg-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h1 class="card-title">{{month}} Pie Chart</h1>
-                  <canvas id="pieChart" style="height:250px"></canvas>
-                </div>
-              </div>
+<!-- partial -->
+<div class="container-fluid page-body-wrapper">
+  <!-- partial -->
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-lg-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="card-title">{{month}} Pie Chart</h1>
+              <canvas id="pieChart" style="height:250px"></canvas>
             </div>
-            <div class="col-lg-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h1 class="card-title">{{month}} Bar Chart</h1>
-                  <canvas id="barChart" style="height:230px"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial -->
+        <div class="col-lg-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="card-title">{{month}} Bar Chart</h1>
+              <canvas id="barChart" style="height:230px"></canvas>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- main-panel ends -->
+      </div>
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-</body>
+    <!-- content-wrapper ends -->
+    <!-- partial -->
+</div>
+<!-- page-body-wrapper ends -->
 <script src="../../public/js/charts.js"></script>
