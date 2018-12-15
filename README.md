@@ -12,8 +12,17 @@
 - After that is complete, run the command "npm start" to start the server
 - Navigate to "http://localhost:3000/" in your browser
 - Sign in using the username: "csquilla" and password: "CSRocks" or make a new user
-- You should now be resirected to the "private" part of the application
+- You should now be redirected to the "private" part of the application
 - Start adding transactions and goals!
+
+## How to Use
+- Add a goal by clicking "Add Goal" and enter the category, amount, and month
+- Remove a goal by clicking the "Remove Goal" button under the desired goal
+- Add a transaction by clicking "Add Transaction: and enter type, store, amount, and date, and description
+- Remove a goal by clicking the "Remove Goal" button next to the desired transaction
+- View charts for the current month by clicking "View Charts"
+- Go back to the home page from the charts by clicking the title "Budget Tracker"
+- Logout by clicking "Logout" in the top right corner
 
 ## About the Developers
 
